@@ -20,6 +20,7 @@ namespace BotWUnpacker
             tbxFolderRoot.Text = Properties.Settings.Default.RootFolder;
             if (tbxFolderRoot.Text != "") btnExtractAll.Enabled = true;
             if (tbxFolderRoot.Text != "") btnOpenFolder.Enabled = true;
+            extnBX.SetSelected(0, true);
         }
 
         #region Button Browse Root 
@@ -313,6 +314,48 @@ namespace BotWUnpacker
             oFile.Dispose();
             GC.Collect();
             lblProcessStatus.Visible = false;
+        }
+
+        private void multiPACK_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog rFolder = new FolderBrowserDialog();
+
+            if (rFolder.ShowDialog() == DialogResult.OK)
+            {
+                string[] directories = Directory.GetDirectories(rFolder.SelectedPath);
+                foreach (string item2 in directories)
+                {
+                    PACK.Build(item2, item2.TrimEnd(Path.DirectorySeparatorChar)+extnBX.Text);
+                }
+            }
+        }
+
+        private void yaz0deDIR_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog yazde = new FolderBrowserDialog();
+            if (yazde.ShowDialog() == DialogResult.OK)
+            {
+                DirectoryInfo d = new DirectoryInfo(yazde.SelectedPath);
+                FileInfo[] decfiles = d.GetFiles("*",SearchOption.TopDirectoryOnly);
+                foreach (FileInfo file in decfiles)
+                {
+                    Yaz0.Decode(file.FullName, file.FullName);
+                }
+            }
+        }
+
+        private void yaz0enDIR_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog yazen = new FolderBrowserDialog();
+            if (yazen.ShowDialog() == DialogResult.OK)
+            {
+                DirectoryInfo d = new DirectoryInfo(yazen.SelectedPath);
+                FileInfo[] decfiles = d.GetFiles("*",SearchOption.TopDirectoryOnly);
+                foreach (FileInfo file in decfiles)
+                {
+                    Yaz0.Encode(file.FullName, file.FullName);
+                }
+            }
         }
     }
 }

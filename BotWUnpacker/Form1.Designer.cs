@@ -48,6 +48,10 @@ namespace BotWUnpacker
             this.cbxAutoDecode = new System.Windows.Forms.CheckBox();
             this.cbxCompileAllInOneFolder = new System.Windows.Forms.CheckBox();
             this.btnYaz0Encode = new System.Windows.Forms.Button();
+            this.multiPACK = new System.Windows.Forms.Button();
+            this.extnBX = new System.Windows.Forms.ListBox();
+            this.yaz0deDIR = new System.Windows.Forms.Button();
+            this.yaz0enDIR = new System.Windows.Forms.Button();
             imgIcon = new System.Windows.Forms.PictureBox();
             lblFootnote = new System.Windows.Forms.Label();
             line1 = new System.Windows.Forms.Label();
@@ -262,12 +266,64 @@ namespace BotWUnpacker
             this.btnYaz0Encode.UseVisualStyleBackColor = true;
             this.btnYaz0Encode.Click += new System.EventHandler(this.btnYaz0Encode_Click);
             // 
+            // multiPACK
+            // 
+            this.multiPACK.Location = new System.Drawing.Point(252, 253);
+            this.multiPACK.Name = "multiPACK";
+            this.multiPACK.Size = new System.Drawing.Size(117, 48);
+            this.multiPACK.TabIndex = 24;
+            this.multiPACK.Text = "PACK Multiple";
+            this.multiPACK.UseVisualStyleBackColor = true;
+            this.multiPACK.Click += new System.EventHandler(this.multiPACK_Click);
+            // 
+            // extnBX
+            // 
+            this.extnBX.FormattingEnabled = true;
+            this.extnBX.Items.AddRange(new object[] {
+            ".pack",
+            ".sarc",
+            ".ssarc",
+            ".rarc",
+            ".sgenvb",
+            ".sbfarc",
+            ".sblarc",
+            ".sbactorpack",
+            ".sstera"});
+            this.extnBX.Location = new System.Drawing.Point(252, 307);
+            this.extnBX.Name = "extnBX";
+            this.extnBX.Size = new System.Drawing.Size(117, 69);
+            this.extnBX.TabIndex = 25;
+            // 
+            // yaz0deDIR
+            // 
+            this.yaz0deDIR.Location = new System.Drawing.Point(119, 176);
+            this.yaz0deDIR.Name = "yaz0deDIR";
+            this.yaz0deDIR.Size = new System.Drawing.Size(75, 23);
+            this.yaz0deDIR.TabIndex = 26;
+            this.yaz0deDIR.Text = "Decode Dir";
+            this.yaz0deDIR.UseVisualStyleBackColor = true;
+            this.yaz0deDIR.Click += new System.EventHandler(this.yaz0deDIR_Click);
+            // 
+            // yaz0enDIR
+            // 
+            this.yaz0enDIR.Location = new System.Drawing.Point(120, 307);
+            this.yaz0enDIR.Name = "yaz0enDIR";
+            this.yaz0enDIR.Size = new System.Drawing.Size(75, 23);
+            this.yaz0enDIR.TabIndex = 27;
+            this.yaz0enDIR.Text = "Encode Dir";
+            this.yaz0enDIR.UseVisualStyleBackColor = true;
+            this.yaz0enDIR.Click += new System.EventHandler(this.yaz0enDIR_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(384, 391);
+            this.Controls.Add(this.yaz0enDIR);
+            this.Controls.Add(this.yaz0deDIR);
+            this.Controls.Add(this.extnBX);
+            this.Controls.Add(this.multiPACK);
             this.Controls.Add(line1);
             this.Controls.Add(this.btnYaz0Encode);
             this.Controls.Add(this.cbxCompileAllInOneFolder);
@@ -318,6 +374,10 @@ namespace BotWUnpacker
         private System.Windows.Forms.CheckBox cbxAutoDecode;
         private System.Windows.Forms.CheckBox cbxCompileAllInOneFolder;
         private System.Windows.Forms.Button btnYaz0Encode;
+        private System.Windows.Forms.Button multiPACK;
+        private System.Windows.Forms.ListBox extnBX;
+        private System.Windows.Forms.Button yaz0deDIR;
+        private System.Windows.Forms.Button yaz0enDIR;
     }
 }
 
